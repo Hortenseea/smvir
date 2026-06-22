@@ -68,11 +68,5 @@ java src.Main
 
 Proyek ini dikembangkan sebagai tugas Projek UAS.
 
-* [Nama Anda/Tim Anda]
-
----
-
-### Tips untuk README Anda:
-
-* **Tambahkan Screenshot:** Jika sudah bisa dijalankan, ambil gambar CLI Anda saat transaksi berhasil dan masukkan ke dalam folder `assets/`, lalu tautkan di README dengan format `![Alt text](assets/screenshot.png)`.
-* **License:** Jika ini adalah proyek publik, jangan lupa tambahkan bagian `License` (misalnya MIT License) di bagian paling bawah.
+* Annurman Hakim Pradana (2025340014)
+* Rasya Pramduya Teja (2025310027)
