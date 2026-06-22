@@ -125,7 +125,7 @@ public class Main {
     static void importVoucherCSV() {
 
         try (BufferedReader br =
-                     new BufferedReader(new FileReader("src/hostpot/data/voucher.csv"))) {
+                     new BufferedReader(new FileReader("data/voucher.csv"))) {
 
             listVoucher.clear();
 
@@ -294,7 +294,7 @@ public class Main {
         }
 
         try (PrintWriter pw =
-                     new PrintWriter("src/hostpot/transaksi.csv")) {
+                     new PrintWriter("output/transaksi.csv")) {
 
             pw.println(
                     "ID,Nama,KodeVoucher,Paket,Harga"
@@ -321,7 +321,7 @@ public class Main {
      
     static void exportPelanggan() {
 
-    try (PrintWriter pw = new PrintWriter("src/hostpot/pelanggan.csv")) {
+    try (PrintWriter pw = new PrintWriter("output/pelanggan.csv")) {
 
         pw.println("ID,Nama,NoTelp");
 
