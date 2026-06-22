@@ -21,6 +21,9 @@ src/
 ├── Transaksi.java    # Model data transaksi
 └── Data/
     └── voucher.csv   # Database sumber voucher
+└── Output/
+    └── transaksi.csv   # Output hasil transaksi selama runtime
+    └── pelanggan.csv   # Output pelanggan selama runtime
 
 ```
 
@@ -36,6 +39,7 @@ Program mengikuti alur sistem manajemen transaksi standar:
 * Proses Transaksi Penjualan.
 * Lihat Riwayat Transaksi.
 * Ekspor Laporan ke CSV.
+* Ekspor Daftar Pelanggan ke CSV
 * Keluar.
 
 
