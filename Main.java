@@ -1,7 +1,7 @@
 package hostpot;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*; //mengimport semua library input output
+import java.util.ArrayList; //mengimpor struktur data arraylist
+import java.util.Scanner;  //mengimpor library untuk input
 
 public class Main {
 
@@ -110,54 +110,55 @@ public class Main {
     static void registrasiPelanggan() { //buat method registrasiPelanggan
 
         System.out.print("Nama : ");
-        String nama = input.nextLine();
+        String nama = input.nextLine(); //input nama
 
         System.out.print("Nomor HP : ");
-        String hp = input.nextLine();
+        String hp = input.nextLine(); //input no hp
 
-        String id = "PLG" + (listPelanggan.size() + 1);
+        String id = "PLG" + (listPelanggan.size() + 1);  //buat variabel id yg isinya PLG+1 dan trus bertambah jika ada data baru
 
-        listPelanggan.add(new Pelanggan(id, nama, hp));
+        listPelanggan.add(new Pelanggan(id, nama, hp));  //membuat objek pelanggan dan memasukan data id,nama,no hp ke parameter
 
-        System.out.println("Registrasi Berhasil");
+        System.out.println("Registrasi Berhasil"); //tampil registrasi berhasil
     }
 
-    static void importVoucherCSV() {
+    static void importVoucherCSV() {  //buat method importVoucherCSV
 
         try (BufferedReader br =
-                     new BufferedReader(new FileReader("data/voucher.csv"))) {
+                     new BufferedReader(new FileReader("data/voucher.csv"))) {  //Membuka file voucher.csv di folder data. Menggunakan try-catch 
+                                                                                //agar program tidak crash jika file tidak ditemukan.
 
-            listVoucher.clear();
+            listVoucher.clear();  //mengosogan data list voucher
 
-            String baris;
+            String baris;  //buat variabel baris
 
-            while ((baris = br.readLine()) != null) {
+            while ((baris = br.readLine()) != null) {  //membaca file bari perbaris hingga baris null
 
-                String[] data = baris.split(",");
+                String[] data = baris.split(",");  //memotong baris teks saat ada koma(,)
 
-                if (data.length >= 3) {
+                if (data.length >= 3) { //jika panjang data lebih dari atau sama dengan 3 maka,
 
-                    String kode = data[0];
-                    String paket = data[1];
-                    double harga = Double.parseDouble(data[2]);
+                    String kode = data[0]; //variabel kode isinya data indeks ke 0
+                    String paket = data[1];  //variabel paket isinya data indeks ke 1
+                    double harga = Double.parseDouble(data[2]);  //variabel harga isinya data indeks ke 2 dan di ubah ke double
 
                     listVoucher.add(
-                            new Voucher(kode, paket, harga)
+                            new Voucher(kode, paket, harga)  //menambahan data di atas tadi ke list voucher
                     );
                 }
             }
 
-            System.out.println("Import Berhasil");
+            System.out.println("Import Berhasil"); //tampil import berhasil
 
         } catch (Exception e) {
-            System.out.println("File voucher.csv tidak ditemukan");
+            System.out.println("File voucher.csv tidak ditemukan");  //jika file tidak di temukan
         }
     }
 
-    static void lihatVoucher() {
+    static void lihatVoucher() {  //buat method lihatVoucher
 
-        if (listVoucher.isEmpty()) {
-            System.out.println("Stok Kosong");
+        if (listVoucher.isEmpty()) {        //jika data listVoucher kosong
+            System.out.println("Stok Kosong");  //maka tampil stok kosong
             return;
         }
 
