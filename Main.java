@@ -162,58 +162,58 @@ public class Main {
             return;
         }
 
-        for (Voucher v : listVoucher) {
+        for (Voucher v : listVoucher) {  //memanggil setiap setiap objek voucher dan di wakilkan dengan variabel v
             System.out.println(
-                    v.getKodeVoucher() + " | "
-                            + v.getPaketVoucher() + " | Rp"
-                            + v.getHargaVoucher()
+                    v.getKodeVoucher() + " | "  //ambil semua data atribut kode voucher
+                            + v.getPaketVoucher() + " | Rp"  //ambil semua data paket voucher
+                            + v.getHargaVoucher()        // //ambil semua data harga voucher
             );
         }
     }
 
-    static void inputTransaksi() {
+    static void inputTransaksi() {    //buat method inputTransaksi
 
-    if (listPelanggan.isEmpty()) {
-        System.out.println("Belum Ada Pelanggan");
-        return;
+    if (listPelanggan.isEmpty()) {   //jika data list pelanggan kosong maka
+        System.out.println("Belum Ada Pelanggan"); // tampil belum ada pelanggan
+        return;  //method selesai
     }
 
-    if (listVoucher.isEmpty()) {
-        System.out.println("Stok Voucher Habis");
-        return;
+    if (listVoucher.isEmpty()) {   //jika data list voucher kosong maka
+        System.out.println("Stok Voucher Habis"); //stok voucher habis
+        return; //method selesai
     }
 
     // Tampilkan pelanggan
     System.out.println("\n=== DAFTAR PELANGGAN ===");
-    for (Pelanggan p : listPelanggan) {
+    for (Pelanggan p : listPelanggan) {  //ambil semu object pelanggan dan di wakilkan variabel p
         System.out.println(
-                p.getId() + " - " + p.getNama()
+                p.getId() + " - " + p.getNama() // ambil data nama
         );
     }
 
     System.out.print("ID Pelanggan : ");
-    String idCari = input.nextLine();
+    String idCari = input.nextLine();  //input id pelanggan yg di cari
 
-    Pelanggan pelangganDipilih = null;
+    Pelanggan pelangganDipilih = null;  // buat variabel pelanggadipilih dan isinya null
 
-    for (Pelanggan p : listPelanggan) {
-        if (p.getId().equalsIgnoreCase(idCari)) {
-            pelangganDipilih = p;
-            break;
+    for (Pelanggan p : listPelanggan) {  //ambil semua objek pelanggan dari list pelanggan dan di wakilkan di variabel p
+        if (p.getId().equalsIgnoreCase(idCari)) {  //mengecek apakah id yg di input ada di data list
+            pelangganDipilih = p; //jika ada makan masukan ke variabel pelanggan di pilih
+            break;  // proses selesai
         }
     }
 
-    if (pelangganDipilih == null) {
-        System.out.println("Pelanggan Tidak Ditemukan");
-        return;
+    if (pelangganDipilih == null) {  // jika isi pelanggandipilih kosong maka
+        System.out.println("Pelanggan Tidak Ditemukan"); //tampil pelanggan tidak di temukan
+        return; //proses selesai
     }
 
     // Tampilkan voucher
     System.out.println("\n=== DAFTAR VOUCHER ===");
 
-    for (int i = 0; i < listVoucher.size(); i++) {
+    for (int i = 0; i < listVoucher.size(); i++) {  
 
-        Voucher v = listVoucher.get(i);
+        Voucher v = listVoucher.get(i); 
 
         System.out.println(
                 (i + 1) + ". "
@@ -227,31 +227,31 @@ public class Main {
 
     System.out.print("Pilih Voucher : ");
     int pilihanVoucher =
-            Integer.parseInt(input.nextLine());
+            Integer.parseInt(input.nextLine());  // input voucher yg di pilih
 
     if (pilihanVoucher < 1
-            || pilihanVoucher > listVoucher.size()) {
+            || pilihanVoucher > listVoucher.size()) {  //jika input kurang dari 1 dan lebih dari banyaknya data listvoucher
 
-        System.out.println("Pilihan Tidak Valid");
-        return;
+        System.out.println("Pilihan Tidak Valid"); //maka tampil pilihan tidak valid
+        return; 
     }
 
     Voucher voucher =
-            listVoucher.remove(pilihanVoucher - 1);
+            listVoucher.remove(pilihanVoucher - 1); //hapus data list voucher yg di pilih kurang 1
 
     String idTransaksi =
-            "TRX" + (listTransaksi.size() + 1);
+            "TRX" + (listTransaksi.size() + 1);  //buat id transkasi 
 
-    Transaksi trx =
-            new Transaksi(
+    Transaksi trx =   
+            new Transaksi(         //buat objek transaksi yaitu trx dan langsung di isi parameternya
                     idTransaksi,
                     pelangganDipilih,
                     voucher
             );
 
-    listTransaksi.add(trx);
+    listTransaksi.add(trx);   // tambahkna data transaksi tadi ke dalma listtransaksi
 
-    System.out.println("\n===== STRUK =====");
+    System.out.println("\n===== STRUK =====");  // tampil struk terkait transaksi
     System.out.println("ID Transaksi : "
             + trx.getIdTransaksi());
     System.out.println("Nama Pelanggan : "
@@ -264,80 +264,80 @@ public class Main {
             + voucher.getHargaVoucher());
 }
 
-    static void riwayatTransaksi() {
+    static void riwayatTransaksi() {  // buat method riwayatTransaksi
 
-        if (listTransaksi.isEmpty()) {
-            System.out.println("Belum Ada Transaksi");
+        if (listTransaksi.isEmpty()) {   //jika list transaksi kosong maka
+            System.out.println("Belum Ada Transaksi"); //tampil belum ada transaksi
             return;
         }
 
-        for (Transaksi trx : listTransaksi) {
+        for (Transaksi trx : listTransaksi) {  //ambil semua objek transaksi dan taro di variabel trx
 
             System.out.println(
                     trx.getIdTransaksi()
                             + " | "
-                            + trx.getPelanggan().getNama()
+                            + trx.getPelanggan().getNama()  //ambil data nama
                             + " | "
-                            + trx.getVoucher().getKodeVoucher()
+                            + trx.getVoucher().getKodeVoucher() //ambil data ode voucher
                             + " | "
-                            + trx.getVoucher().getPaketVoucher()
+                            + trx.getVoucher().getPaketVoucher() //ambil data paket voucher
                             + " | Rp"
-                            + trx.getVoucher().getHargaVoucher()
+                            + trx.getVoucher().getHargaVoucher() ////ambil data harga voucher
             );
         }
     }
 
-    static void exportCSV() {
+    static void exportCSV() {  //buat methode exportCSV
         
          if (listTransaksi.isEmpty()) {
-            System.out.println("Belum Ada Transaksi");
-            return;
+            System.out.println("Belum Ada Transaksi");  //validasi jika list transaksi kosong maka tampil belum ada transaksi
+            return;  /proses selesai
         }
 
         try (PrintWriter pw =
-                     new PrintWriter("output/transaksi.csv")) {
+                     new PrintWriter("output/transaksi.csv")) { // membuat file transaksi.csv
 
             pw.println(
-                    "ID,Nama,KodeVoucher,Paket,Harga"
+                    "ID,Nama,KodeVoucher,Paket,Harga"  //menuliskan ke dalam baris di file transaksi.csv
             );
 
-            for (Transaksi trx : listTransaksi) {
+            for (Transaksi trx : listTransaksi) {   //ambil semua objek transaksi dan taro di variabel trx
 
                 pw.println(
                         trx.getIdTransaksi() + ","
                                 + trx.getPelanggan().getNama() + ","
-                                + trx.getVoucher().getKodeVoucher() + ","
+                                + trx.getVoucher().getKodeVoucher() + ","   //tulisa semua data ke file transaksi.csv
                                 + trx.getVoucher().getPaketVoucher() + ","
                                 + trx.getVoucher().getHargaVoucher()
                 );
             }
 
-            System.out.println("Export Berhasil");
+            System.out.println("Export Berhasil");  //tampil Export berhasil
 
         } catch (Exception e) {
-            System.out.println("Export Gagal" + e.getMessage());
+            System.out.println("Export Gagal" + e.getMessage()); //catch jia export gagal atau ada eror, program tidak langsung berhenti
         }
     }
     
      
-    static void exportPelanggan() {
+    static void exportPelanggan() {   //buat method exportPelanggan
 
-    try (PrintWriter pw = new PrintWriter("output/pelanggan.csv")) {
+    try (PrintWriter pw = new PrintWriter("output/pelanggan.csv")) {  // membuat file pelanggan.csv
 
-        pw.println("ID,Nama,NoTelp");
+        pw.println("ID,Nama,NoTelp"); //menuliskan ke dalam baris di file pelanggan.csv
 
-        for (Pelanggan p : listPelanggan) {
+        for (Pelanggan p : listPelanggan) { /ambil semua objek pelanggan dari list pelanggan dan di wakilkan di variabel p
             pw.println(
                     p.getId() + ","
-                    + p.getNama() + ","
+                    + p.getNama() + "," //tulisakn ke dalam file pelanggan.csv
                     + p.getNomorHP()
             );
         }
 
-        System.out.println("Export Pelanggan Berhasil");
+        System.out.println("Export Pelanggan Berhasil"); //tampil export berhsil
 
     } catch (Exception e) {
-        System.out.println("Export Gagal");
+        System.out.println("Export Gagal"); /catch jia export gagal atau ada eror, program tidak langsung berhenti
         e.printStackTrace();
     }
 }
