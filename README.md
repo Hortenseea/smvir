@@ -35,11 +35,11 @@ Program mengikuti alur sistem manajemen transaksi standar:
 2. **Menu Utama:**
 * Registrasi Pelanggan.
 * Import Voucher (via file CSV).
+* Import Pelanggan (via file CSV).
 * Cek Stok Voucher.
 * Proses Transaksi Penjualan.
 * Lihat Riwayat Transaksi.
 * Ekspor Laporan ke CSV.
-* Ekspor Daftar Pelanggan ke CSV
 * Keluar.
 
 
