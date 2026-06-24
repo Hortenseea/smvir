@@ -15,6 +15,7 @@ public class Main {
         Admin admin = new Admin("admin", "123"); //buat objek admmin dengan parameter admin dan 123, untuk nantinya login sistem
 
         importVoucherCSV(); //memanggil method importVouvher
+        importPelanggan(); //memanggil method importPelanggan
 
         boolean statusLogin = false;  //buat variabel statusLogin dengan tipe data boolean dan isi datanya false
         int percobaan = 0;  //buat variabel percobaan dengan tipe data integer dan data awalnya 0
@@ -51,8 +52,7 @@ public class Main {
             System.out.println("3. Lihat Stok Voucher");    //menu 3
             System.out.println("4. Input Transaksi");       //menu 4
             System.out.println("5. Riwayat Transaksi");     //menu 5
-            System.out.println("6. Export Laporan CSV");    //menu 6
-            System.out.println("7. Export Data Pelanggan"); //menu 7
+            System.out.println("6. Export Laporan CSV");    //menu 6 
             System.out.println("0. Keluar");                //menu 0
 
             System.out.print("Pilih : ");
@@ -62,6 +62,7 @@ public class Main {
 
                 case 1:  //jika input 1
                     registrasiPelanggan(); //panggil method registrasiPelanggan
+                    exportPelanggan(); //auto ekspor daftar pelanggan ke csv
                     break;
 
                 case 2: //jika input 2
@@ -82,10 +83,6 @@ public class Main {
 
                 case 6:  //jika input 6
                     exportCSV();    //panggil method exportCSV
-                    break;
-                        
-                case 7:  //jika input 7
-                    exportPelanggan();  //panggil method exportPelanggan
                     break;
 
                 case 0:  //jika input 0
@@ -339,4 +336,40 @@ public class Main {
         e.printStackTrace();
     }
 }
+
+    static void importPelanggan() { //method impor pelanggan
+
+        try (BufferedReader br =
+                new BufferedReader(new FileReader("output/pelanggan.csv"))) {
+
+            listPelanggan.clear();
+
+            String baris;
+
+            // Skip header
+            br.readLine();
+
+            while ((baris = br.readLine()) != null) {
+
+                String[] data = baris.split(",");
+
+                if (data.length >= 3) {
+
+                    String id = data[0];
+                    String nama = data[1];
+                    String noTelp = data[2];
+
+                    listPelanggan.add(
+                        new Pelanggan(id, nama, noTelp)
+                    );
+                }
+            }
+
+            System.out.println("Data pelanggan berhasil diimport");
+
+        } catch (Exception e) {
+            System.out.println("Belum ada file pelanggan");
+        }
+    }
+    
 }
