@@ -1,4 +1,3 @@
-package hostpot;
 import java.util.*;
 
 public class Admin {
