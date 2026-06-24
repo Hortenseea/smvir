@@ -1,4 +1,3 @@
-package hostpot;
 public class Voucher {
     private String kodeVoucher;
     private String paketVoucher;

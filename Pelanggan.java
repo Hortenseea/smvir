@@ -1,4 +1,3 @@
-package hostpot;
 public class Pelanggan {
     private String id;
     private String nama;
