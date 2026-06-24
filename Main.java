@@ -121,7 +121,7 @@ public class Main {
         System.out.println("Registrasi Berhasil");
     }
 
-    static void importVoucherCSV() {
+    static void importVoucherCSV() { // method import csv
 
         try (BufferedReader br =
                      new BufferedReader(new FileReader("data/voucher.csv"))) {
@@ -153,7 +153,7 @@ public class Main {
         }
     }
 
-    static void lihatVoucher() {
+    static void lihatVoucher() { //method untuk melihat isi voucher.csv
 
         if (listVoucher.isEmpty()) {
             System.out.println("Stok Kosong");
@@ -169,7 +169,7 @@ public class Main {
         }
     }
 
-    static void inputTransaksi() {
+    static void inputTransaksi() { //method untuk melakukan transaksi
 
     if (listPelanggan.isEmpty()) {
         System.out.println("Belum Ada Pelanggan");
@@ -262,7 +262,7 @@ public class Main {
             + voucher.getHargaVoucher());
 }
 
-    static void riwayatTransaksi() {
+    static void riwayatTransaksi() { //method menampilkan riwayat transaksi
 
         if (listTransaksi.isEmpty()) {
             System.out.println("Belum Ada Transaksi");
@@ -285,7 +285,7 @@ public class Main {
         }
     }
 
-    static void exportCSV() {
+    static void exportCSV() { //method ekspor csv untuk transaksi
         
          if (listTransaksi.isEmpty()) {
             System.out.println("Belum Ada Transaksi");
@@ -318,7 +318,7 @@ public class Main {
     }
     
      
-    static void exportPelanggan() {
+    static void exportPelanggan() { //ekspor csv daftar pelanggan
 
     try (PrintWriter pw = new PrintWriter("output/pelanggan.csv")) {
 
